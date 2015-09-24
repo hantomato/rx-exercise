@@ -8,6 +8,8 @@ public class exercise1 {
 		.subscribe(v -> System.out.println(v));
 		
 		System.out.println("main end..");
+		
+		
 	}
 
 }
