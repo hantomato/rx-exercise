@@ -1,4 +1,4 @@
-package com.nmj.rx.ex1;
+package com.nmj.rx.week1;
 
 import rx.Observer;
 import rx.Subscription;
