@@ -1,7 +1,5 @@
 package com.nmj.rx.test;
 
-import com.nmj.rx.util.Logger;
-
 public class test1 {
 
 	public static class MyObserve<T> implements rx.Observer {
@@ -9,19 +7,19 @@ public class test1 {
 		@Override
 		public void onCompleted() {
 			// TODO Auto-generated method stub
-			Logger.log("MyObserve onCompleted..");
+			System.out.println("MyObserve onCompleted..");
 		}
 
 		@Override
 		public void onError(Throwable e) {
 			// TODO Auto-generated method stub
-			Logger.log("MyObserve onError..");
+			System.out.println("MyObserve onError..");
 		}
 
 		@Override
 		public void onNext(Object t) {
 			// TODO Auto-generated method stub
-			Logger.log("MyObserve onNext..:" + t);
+			System.out.println("MyObserve onNext..:" + t);
 			
 		}
 
@@ -29,7 +27,7 @@ public class test1 {
 	};
 	
 	public static void main(String... argc) {
-		Logger.log("start");
+		System.out.println("start");
 		
 		
 		
@@ -53,19 +51,19 @@ public class test1 {
 			@Override
 			public void onCompleted() {
 				// TODO Auto-generated method stub
-				Logger.log("onCompleted..");
+				System.out.println("onCompleted..");
 			}
 
 			@Override
 			public void onError(Throwable e) {
 				// TODO Auto-generated method stub
-				Logger.log("onError..");
+				System.out.println("onError..");
 			}
 
 			@Override
 			public void onNext(Object t) {
 				// TODO Auto-generated method stub
-				Logger.log("onNext..:" + t);
+				System.out.println("onNext..:" + t);
 				
 			}
 			
