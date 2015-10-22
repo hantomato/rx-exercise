@@ -35,7 +35,6 @@ public class exercise {
 		});
 	}
 	
-	
 	public static Observable<Integer> Range(int seed, int count) {
 		
 		Observable<Integer> observable = generate(
@@ -51,8 +50,9 @@ public class exercise {
 		
 	}
 	
-	public static Observable<Integer> fibonacci() {
+	public static Observable<Integer> fibonacci_1() {
 		
+		// 자바에는 closure가 지원되지 않아서, Local Class를 사용함
 		class Fibona {
 			int newValue = 0;
 			int prev1 = 0;
@@ -85,6 +85,29 @@ public class exercise {
 	}
 	
 	
+	public static Observable<Integer> fibonacci_2() {
+
+		// 자바엔 Tuple 또는 Pair 가 없네.
+		class Tuple<T1, T2> {
+			public T1 t1;
+			public T2 t2;
+			public Tuple(T1 t1, T2 t2) {
+				this.t1 = t1;
+				this.t2 = t2;
+			}
+		}
+		
+		Tuple<Integer,Integer> init = new Tuple<Integer,Integer>(0, 1);
+		
+		Observable<Integer> observable = generate(
+				init,
+				v -> true,
+				v -> new Tuple<Integer,Integer>(v.t2, v.t1 + v.t2),
+				v -> v.t1);
+		
+		return observable;
+	
+	}		
 	
 	public static void main(String... argc) {
 		System.out.println("main thread start - " + Thread.currentThread().getName());
@@ -109,7 +132,7 @@ public class exercise {
 //		[main]  onComplete
 		
 		// 2. Fibonacci 수열을 emit하는 Observable 만들어보기
-		Observable<Integer> obs2 = fibonacci();
+		Observable<Integer> obs2 = fibonacci_2();
 		obs2.take(10).subscribe(
 				a -> System.out.println(curThread() + "   onNext:" + a), 
 				e -> System.out.println(curThread() + "   error"), 
