@@ -28,7 +28,6 @@ public static IObservable<TSource> Distinct<TSource>(
 */
 public class exercise {
 	
-//	private static Subscriber mSubscriber = null;
 	private static boolean doSkip = true;
 	
 	public static<TSource> Observable<TSource> where(
