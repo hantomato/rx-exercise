@@ -1,5 +1,9 @@
-package com.nmj.rx.test;
+package com.nmj.rx.start;
 
+/**
+ * @author tomatomb
+ *
+ */
 public class test1 {
 
 	public static class MyObserve<T> implements rx.Observer {
